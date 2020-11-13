@@ -1,0 +1,19 @@
+<div>
+  Foo is <span id="foo">{{@foo}}</span>
+</div>
+
+{{#if @incrementFoo}}
+  <button
+    type="button"
+    {{on "click" @incrementFoo}}
+  >
+    Increment Foo
+  </button>
+{{/if}}
+
+<div
+  {{did-insert (fn this.squareFoo @foo)}}
+  {{did-update (fn this.squareFoo @foo)}}
+>
+  Foo squared is <span id="foo-squared">{{this.fooSquared}}</span>.
+</div>
