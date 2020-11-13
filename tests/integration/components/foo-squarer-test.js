@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | foo-squarer', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it updates the function when its arguments update', async function(assert) {
     this.set('foo', 0);
     await render(hbs`<FooSquarer @foo={{this.foo}} />`);
     this.set('foo', 1);
