@@ -17,3 +17,10 @@
 >
   Foo squared is <span id="foo-squared">{{this.fooSquared}}</span>.
 </div>
+
+<div
+  {{did-insert (perform this.cubeFooTask @foo)}}
+  {{did-update (perform this.cubeFooTask @foo)}}
+>
+  Foo cubed is <span id="foo-cubed">{{this.fooCubed}}</span>.
+</div>

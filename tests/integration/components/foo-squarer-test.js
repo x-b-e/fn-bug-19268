@@ -14,4 +14,12 @@ module('Integration | Component | foo-squarer', function(hooks) {
     assert.equal(this.element.querySelector('#foo').textContent.trim(), this.foo);
     assert.equal(this.element.querySelector('#foo-squared').textContent.trim(), this.foo * this.foo);
   });
+
+  test('it updates the task when its arguments update', async function(assert) {
+    this.set('foo', 0);
+    await render(hbs`<FooSquarer @foo={{this.foo}} />`);
+    this.set('foo', 2);
+
+    assert.equal(this.element.querySelector('#foo-cubed').textContent.trim(), this.foo * this.foo * this.foo);
+  });
 });

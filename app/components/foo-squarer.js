@@ -1,13 +1,23 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { task } from 'ember-concurrency-decorators';
 
 export default class FooSquarerComponent extends Component {
   @tracked
   fooSquared
 
+  @tracked
+  fooCubed
+
   @action
-  squareFoo() {
-    this.fooSquared = this.args.foo * this.args.foo;
+  squareFoo(foo) {
+    this.fooSquared = foo * foo;
+  }
+
+  @task
+  // eslint-disable-next-line require-yield
+  *cubeFooTask(foo) {
+    this.fooCubed = foo * foo * foo;
   }
 }
