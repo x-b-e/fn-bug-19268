@@ -15,6 +15,10 @@ export default class FooSquarerComponent extends Component {
     this.fooSquared = foo * foo;
   }
 
+  negatizeFoo(foo) {
+    return -1 * foo;
+  }
+
   @task
   // eslint-disable-next-line require-yield
   *cubeFooTask(foo) {

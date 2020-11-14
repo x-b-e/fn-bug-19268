@@ -22,4 +22,12 @@ module('Integration | Component | foo-squarer', function(hooks) {
 
     assert.equal(this.element.querySelector('#foo-cubed').textContent.trim(), this.foo * this.foo * this.foo);
   });
+
+  test('it triggers a re-compute when args update', async function(assert) {
+    this.set('foo', 1);
+    await render(hbs`<FooSquarer @foo={{this.foo}} />`);
+    this.set('foo', 2);
+
+    assert.equal(this.element.querySelector('#foo-negative').textContent.trim(), -1 * this.foo);
+  });
 });

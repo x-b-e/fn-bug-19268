@@ -15,12 +15,25 @@
   {{did-insert (fn this.squareFoo @foo)}}
   {{did-update (fn this.squareFoo @foo)}}
 >
-  Foo squared is <span id="foo-squared">{{this.fooSquared}}</span>.
+  Foo squared is
+  <span id="foo-squared">
+    {{this.fooSquared}}
+  </span>.
 </div>
 
 <div
   {{did-insert (perform this.cubeFooTask @foo)}}
   {{did-update (perform this.cubeFooTask @foo)}}
 >
-  Foo cubed is <span id="foo-cubed">{{this.fooCubed}}</span>.
+  Foo cubed is
+  <span id="foo-cubed">
+    {{this.fooCubed}}
+  </span>.
+</div>
+
+<div>
+  Foo negative is
+  <span id="foo-negative">
+    {{compute (fn this.negatizeFoo @foo)}}
+  </span>
 </div>
